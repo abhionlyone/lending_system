@@ -10,7 +10,62 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170808071952) do
+ActiveRecord::Schema.define(version: 20170808174016) do
+
+  create_table "intermediate_source_proofs", force: :cascade do |t|
+    t.integer "intermediate_source_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "pan_file_name"
+    t.string "pan_content_type"
+    t.integer "pan_file_size"
+    t.datetime "pan_updated_at"
+    t.string "aadhar_file_name"
+    t.string "aadhar_content_type"
+    t.integer "aadhar_file_size"
+    t.datetime "aadhar_updated_at"
+    t.index ["intermediate_source_id"], name: "index_intermediate_source_proofs_on_intermediate_source_id"
+  end
+
+  create_table "intermediate_sources", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "pan_card_number"
+    t.string "mobile"
+    t.string "company_pan"
+    t.string "company_type"
+    t.string "annual_turn_over"
+    t.date "founding_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "loan_requests", force: :cascade do |t|
+    t.integer "user_id"
+    t.string "company_pan"
+    t.string "company_type"
+    t.string "annual_turn_over"
+    t.date "founding_date"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
+    t.index ["user_id"], name: "index_loan_requests_on_user_id"
+  end
+
+  create_table "proofs", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "pan_file_name"
+    t.string "pan_content_type"
+    t.integer "pan_file_size"
+    t.datetime "pan_updated_at"
+    t.string "aadhar_file_name"
+    t.string "aadhar_content_type"
+    t.integer "aadhar_file_size"
+    t.datetime "aadhar_updated_at"
+    t.integer "loan_request_id"
+    t.index ["loan_request_id"], name: "index_proofs_on_loan_request_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -33,6 +88,9 @@ ActiveRecord::Schema.define(version: 20170808071952) do
     t.string "invited_by_type"
     t.integer "invited_by_id"
     t.integer "invitations_count", default: 0
+    t.string "name"
+    t.string "pan_card_number"
+    t.string "mobile"
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["invitation_token"], name: "index_users_on_invitation_token", unique: true
     t.index ["invitations_count"], name: "index_users_on_invitations_count"

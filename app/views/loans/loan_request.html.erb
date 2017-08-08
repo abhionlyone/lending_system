@@ -1,0 +1,41 @@
+<div class="container">
+  <h2>Loan Application:</h2>
+  <p>Your application status is: <%= current_user.loan_request.status %> </p>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>PAN card number</th>
+        <th>Mobile</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= current_user.name %></td>
+        <td><%= current_user.email %></td>
+        <td><%= current_user.pan_card_number %></td>
+        <td><%= current_user.mobile %></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Company PAN</th>
+        <th>Annual turn over</th>
+        <th>Type</th>
+        <th>Founded Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><%= current_user.loan_request.company_pan %></td>
+        <td><%= current_user.loan_request.annual_turn_over %></td>
+        <td><%= current_user.loan_request.company_type %></td>
+        <td><%= current_user.loan_request.founding_date %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>

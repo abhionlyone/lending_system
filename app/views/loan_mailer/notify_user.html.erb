@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type'/>
+  </head>
+  <body>
+    <div class="container">
+      <p>Dear
+        <%= @user.name %>, We have received a Loan request with following details:
+      </p>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>PAN card number</th>
+            <th>Mobile</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @user.name %></td>
+            <td><%= @user.email %></td>
+            <td><%= @user.pan_card_number %></td>
+            <td><%= @user.mobile %></td>
+          </tr>
+        </tbody>
+      </table>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Company PAN</th>
+            <th>Annual turn over</th>
+            <th>Type</th>
+            <th>Founded Date</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><%= @user.loan_request.company_pan %></td>
+            <td><%= @user.loan_request.annual_turn_over %></td>
+            <td><%= @user.loan_request.company_type %></td>
+            <td><%= @user.loan_request.founding_date %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

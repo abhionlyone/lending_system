@@ -23,6 +23,12 @@ gem 'devise'
 gem 'devise_invitable'
 gem 'devise-bootstrap-views'
 gem "letter_opener", :group => :development
+gem 'jquery-rails', '~> 4.3', '>= 4.3.1'
+gem 'bootstrap-sass', '3.2.0.2'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.47'
+gem "paperclip", git: "git://github.com/thoughtbot/paperclip.git"
+gem 'remotipart'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

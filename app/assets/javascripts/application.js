@@ -12,6 +12,16 @@
 //
 //= require rails-ujs
 //= require turbolinks
+//= require jquery
+//= require jquery_ujs
+//= require jquery.remotipart
+//= require twitter/bootstrap
 //= require sweetalert2
 //= require sweet-alert2-rails
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .
+
+$(function() {
+  $('#intermediate_source_founding_date').datetimepicker();
+});
